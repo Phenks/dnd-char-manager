@@ -1,0 +1,8 @@
+<div class="container">
+  <ui-character-card
+    class="card"
+    *ngFor="let char of characters"
+    [character]="char"
+    (click)="routeToCharPage(char)"
+  ></ui-character-card>
+</div>
