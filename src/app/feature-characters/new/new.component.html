@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="loadCharacter(model)">
+  <formly-form
+    [model]="model"
+    [fields]="fields"
+    [options]="options"
+    [form]="form"
+  ></formly-form>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="!form.valid"
+  >
+    Character laden
+  </button>
+</form>

@@ -18,4 +18,8 @@ export class CharacterDashboardComponent {
   routeToCharPage(char: Character): void {
     this.router.navigate(['characters', char.id]);
   }
+
+  routeToNewChar(): void {
+    this.router.navigate(['characters', 'new']);
+  }
 }

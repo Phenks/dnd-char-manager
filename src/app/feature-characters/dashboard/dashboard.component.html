@@ -5,4 +5,9 @@
     [character]="char"
     (click)="routeToCharPage(char)"
   ></ui-character-card>
+  <mat-card (click)="routeToNewChar()">
+    <mat-card-content class="new-char-card">
+      <div class="add-symbol">+</div>
+    </mat-card-content>
+  </mat-card>
 </div>
