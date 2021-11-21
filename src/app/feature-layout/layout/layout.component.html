@@ -13,7 +13,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="toolbar">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -23,9 +23,34 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>dnd-char-manager</span>
+      <span>TODO Current Page Name</span>
+      <div>
+        <div *ngIf="user | async as userObj">
+          {{ userObj.name }}
+          <button
+            class="login-btn"
+            (click)="logout()"
+            mat-raised-button
+            color="accent"
+          >
+            Logout
+          </button>
+        </div>
+
+        <button
+          *ngIf="!(user | async)"
+          class="login-btn"
+          (click)="login()"
+          mat-raised-button
+          color="accent"
+        >
+          Login
+        </button>
+      </div>
     </mat-toolbar>
+
     <div class="content-wrapper">
+      {{ user | async | json }}
       <ng-content></ng-content>
     </div>
   </mat-sidenav-content>
