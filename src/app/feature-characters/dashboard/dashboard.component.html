@@ -1,7 +1,7 @@
 <div class="container">
   <ui-character-card
     class="card"
-    *ngFor="let char of characters"
+    *ngFor="let char of characters$ | async"
     [character]="char"
     (click)="routeToCharPage(char)"
   ></ui-character-card>

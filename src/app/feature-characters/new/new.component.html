@@ -9,7 +9,7 @@
     mat-raised-button
     type="submit"
     color="primary"
-    [disabled]="!form.valid"
+    [disabled]="!form.valid && !isSubmitting"
   >
     Character laden
   </button>

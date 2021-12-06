@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { CharactersService } from 'src/app/_services/characters.service';
-import { Character } from 'src/app/_shared/character';
+import { CharacterDetail } from 'src/app/_shared/character';
 
 @Component({
   selector: 'app-detail',
@@ -10,7 +10,7 @@ import { Character } from 'src/app/_shared/character';
   styleUrls: ['./detail.component.less'],
 })
 export class CharacterDetailComponent implements OnInit {
-  character$: Observable<Character> | undefined;
+  character$: Observable<CharacterDetail> | undefined;
 
   constructor(
     private route: ActivatedRoute,

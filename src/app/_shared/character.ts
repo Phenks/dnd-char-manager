@@ -1,13 +1,29 @@
-export interface Character {
-  name: string;
-  gender: 'male' | 'female' | 'div';
-  level: number;
-  currency: string;
-  // Big Image as URL
-  image?: string;
-  // Avatar Image as URL
-  avatar?: string;
-  race: string;
-  description: string;
-  id: number;
+export interface CharacterDetail {
+  id?: number;
+  name?: string;
+  imageURL?: string;
+  race?: string;
+  currency?: Currency;
+  items?: Array<Item>;
+  level?: number;
+  milestones?: number;
+  description?: string;
+  classes: string[];
+}
+
+export interface Currency {
+  id?: number;
+  copper?: number;
+  silver?: number;
+  gold?: number;
+  electrum?: number;
+  platin?: number;
+}
+
+export interface Item {
+  value?: number;
+  name?: string;
+  id?: number;
+  quantity?: number;
+  tradeable?: boolean;
 }

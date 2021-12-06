@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Character } from 'src/app/_shared/character';
+import { CharacterDetail } from 'src/app/_shared/character';
 
 @Component({
   selector: 'ui-character-card',
@@ -7,9 +7,16 @@ import { Character } from 'src/app/_shared/character';
   styleUrls: ['./card.component.less'],
 })
 export class CardComponent implements OnInit {
-  @Input() character: Character | undefined;
+  @Input() character: CharacterDetail | undefined;
   @Output() click = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
+
+  get ImageUrl(): string {
+    return (
+      this.character?.imageURL ||
+      `assets/char-images/${this.character?.classes[0].toLowerCase()}.jpg`
+    );
+  }
 }

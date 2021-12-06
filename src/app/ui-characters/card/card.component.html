@@ -1,15 +1,10 @@
 <mat-card class="example-card" (click)="click.emit()">
   <mat-card-header>
-    <div
-      [ngStyle]="{ 'background-image': 'url(' + character?.avatar + ')' }"
-      mat-card-avatar
-      class="example-header-image"
-    ></div>
     <mat-card-title>{{ character?.name }}</mat-card-title>
     <mat-card-subtitle>{{ character?.race }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <img mat-card-image class="charImage" [src]="character?.image" />
+    <img mat-card-image class="charImage" [src]="ImageUrl" />
 
     <p>
       {{ character?.description }}

@@ -1,4 +1,4 @@
 export interface UserData {
-  googleId: string;
+  role: string;
   name: string;
 }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { EMPTY, Observable } from 'rxjs';
 import { CharactersService } from 'src/app/_services/characters.service';
-import { Character } from 'src/app/_shared/character';
+import { CharacterDetail } from 'src/app/_shared/character';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,13 +10,13 @@ import { Character } from 'src/app/_shared/character';
   styleUrls: ['./dashboard.component.less'],
 })
 export class CharacterDashboardComponent {
-  characters: Character[] = [];
+  characters$: Observable<CharacterDetail[]>;
 
   constructor(characterService: CharactersService, private router: Router) {
-    this.characters = characterService.getAll();
+    this.characters$ = characterService.getAll();
   }
 
-  routeToCharPage(char: Character): void {
+  routeToCharPage(char: CharacterDetail): void {
     this.router.navigate(['characters', char.id]);
   }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { Character } from 'src/app/_shared/character';
+import { CharactersService } from 'src/app/_services/characters.service';
 
 interface BeyondUrl {
   url: string;
@@ -13,11 +14,11 @@ interface BeyondUrl {
   styleUrls: ['./new.component.less'],
 })
 export class NewCharComponent implements OnInit {
-  constructor() {}
+  constructor(private charService: CharactersService, private router: Router) {}
   form = new FormGroup({});
-
   model: BeyondUrl = { url: '' };
   options: FormlyFormOptions = {};
+  isSubmitting = false;
   fields: FormlyFieldConfig[] = [
     {
       key: 'url',
@@ -34,6 +35,9 @@ export class NewCharComponent implements OnInit {
   ngOnInit(): void {}
 
   loadCharacter(url: BeyondUrl) {
-    alert('test');
+    this.isSubmitting = true;
+    this.charService
+      .create(url.url)
+      .subscribe((c) => this.router.navigate(['characters']));
   }
 }
