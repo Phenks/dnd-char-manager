@@ -1,11 +1,10 @@
-<mat-card class="example-card" (click)="click.emit()">
+<mat-card class="card card-hover">
   <mat-card-header>
     <mat-card-title>{{ character?.name }}</mat-card-title>
     <mat-card-subtitle>{{ character?.race }}</mat-card-subtitle>
   </mat-card-header>
+  <img mat-card-image class="charImage" [src]="ImageUrl" />
   <mat-card-content>
-    <img mat-card-image class="charImage" [src]="ImageUrl" />
-
     <p>
       {{ character?.description }}
     </p>

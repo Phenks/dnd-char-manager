@@ -9,6 +9,18 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-mat-card:hover {
+.card {
+  min-height: 300px;
+  min-height: calc(100% - 32px) !important;
+
+  width: 250px;
+}
+
+.card-container {
+  display: flex;
+  gap: 47px;
+}
+
+.card-hover:hover {
   background-color: gray;
 }

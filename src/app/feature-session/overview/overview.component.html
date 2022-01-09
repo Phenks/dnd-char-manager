@@ -1,4 +1,11 @@
-<ui-util-add-card (click)="openNewSessionDialog()"></ui-util-add-card>
-<div *ngFor="let session of sessionSerivce.data$ | async">
-  {{ session.name }}
+<div class="card-container" *ngIf="userService.user$ | async as user">
+  <ui-util-add-card (click)="openNewSessionDialog()"></ui-util-add-card>
+  <ui-session-card
+    *ngFor="let session of sessionSerivce.data$ | async"
+    [session]="session"
+    [isDm]="session.creatorId == user.id"
+    (dmNavigationClick)="navToSession(session.id)"
+    (joinClick)="joinSession(session.id)"
+  >
+  </ui-session-card>
 </div>
