@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 export class ApiServiceBase<T> {
   constructor(private http: HttpClient, private endpointUrl: string) {
     this.endpoint = environment.apiUrl + this.endpointUrl;
+    this.loadAll();
   }
 
   subject = new BehaviorSubject<T[]>([]);
