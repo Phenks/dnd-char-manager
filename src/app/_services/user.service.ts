@@ -48,9 +48,7 @@ export class UserService {
     localStorage.removeItem('userToken');
   }
 
-  public user(): Observable<UserData | null> {
-    return this.userSubject.asObservable();
-  }
+  public user$ = this.userSubject.asObservable();
 
   get AuthToken(): string | undefined {
     return this.userToken;
@@ -75,6 +73,7 @@ export class UserService {
       role: payload[
         'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
       ],
+      id: payload['id'],
     };
   }
 }

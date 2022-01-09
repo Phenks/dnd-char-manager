@@ -9,8 +9,10 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UiSessionModule } from '../ui-session/ui-session.module';
+import { DetailComponent } from './detail/detail.component';
 @NgModule({
-  declarations: [OverviewComponent, NewSessionComponent],
+  declarations: [OverviewComponent, NewSessionComponent, DetailComponent],
   imports: [
     CommonModule,
     UiUtilModule,
@@ -19,10 +21,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     ReactiveFormsModule,
+    UiSessionModule,
     RouterModule.forChild([
       {
         path: '',
         component: OverviewComponent,
+      },
+
+      {
+        path: ':id',
+        component: DetailComponent,
       },
     ]),
   ],

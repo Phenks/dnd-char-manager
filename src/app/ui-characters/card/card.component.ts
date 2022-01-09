@@ -8,7 +8,6 @@ import { CharacterDetail } from 'src/app/_shared/character';
 })
 export class CardComponent implements OnInit {
   @Input() character: CharacterDetail | undefined;
-  @Output() click = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}

@@ -14,6 +14,7 @@ import { UiUtilModule } from './ui-util/ui-util.module';
 import { FeatureSessionModule } from './feature-session/feature-session.module';
 import { MatCardModule } from '@angular/material/card';
 import { FormlyMaterialModule } from '@ngx-formly/material';
+import { UiSessionModule } from './ui-session/ui-session.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -25,6 +26,7 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
     FeatureLayoutModule,
     HttpClientModule,
     UiUtilModule,
+    UiSessionModule,
     FeatureSessionModule,
     FormlyModule.forRoot({
       validationMessages: [

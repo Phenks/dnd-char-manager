@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
     private userService: UserService
   ) {}
   ngOnInit(): void {
-    this.user = this.userService.user();
+    this.user = this.userService.user$;
   }
 
   login(): void {

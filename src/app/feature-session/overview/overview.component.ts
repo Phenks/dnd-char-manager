@@ -3,8 +3,10 @@ import {
   MatDialog,
   MAT_DIALOG_SCROLL_STRATEGY_PROVIDER_FACTORY,
 } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { SessionsService } from 'src/app/_services/sessions.service';
+import { UserService } from 'src/app/_services/user.service';
 import { NewSessionComponent } from '../new-session/new-session.component';
 @Component({
   selector: 'app-overview',
@@ -14,7 +16,9 @@ import { NewSessionComponent } from '../new-session/new-session.component';
 export class OverviewComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
-    public sessionSerivce: SessionsService
+    public sessionSerivce: SessionsService,
+    public userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -31,4 +35,10 @@ export class OverviewComponent implements OnInit {
       }
     });
   }
+
+  navToSession(id: number): void {
+    this.router.navigate(['sessions', id]);
+  }
+
+  joinSession(id: number): void {}
 }

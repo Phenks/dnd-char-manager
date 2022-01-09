@@ -1,0 +1,17 @@
+<mat-card
+  class="card"
+  *ngIf="session"
+  [class.card-hover]="isDm"
+  (click)="onCardClick()"
+>
+  <mat-card-content>
+    <mat-card-title>{{ session.name }}</mat-card-title>
+
+    <p>{{ session.description }}</p>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="!isDm">
+    <mat-divider class="divider" inset></mat-divider>
+    <button mat-button (click)="onJoinClick()">Join !</button>
+  </mat-card-actions>
+</mat-card>

@@ -3,4 +3,6 @@ export interface Session {
   description: string;
   minLevel: number;
   maxLevel: number;
+  creatorId: number;
+  id: number;
 }
