@@ -1,0 +1,4 @@
+<ui-util-add-card (click)="openNewSessionDialog()"></ui-util-add-card>
+<div *ngFor="let session of sessionSerivce.data$ | async">
+  {{ session.name }}
+</div>

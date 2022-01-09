@@ -13,6 +13,13 @@ const routes: Routes = [
         (m) => m.FeatureCharactersModule
       ),
   },
+  {
+    path: 'sessions',
+    loadChildren: () =>
+      import('./feature-session/feature-session.module').then(
+        (m) => m.FeatureSessionModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>New Session</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+    <button
+      type="submit"
+      [disabled]="!form.valid"
+      [mat-dialog-close]="model"
+      mat-button
+    >
+      Create
+    </button>
+  </form>
+</div>
