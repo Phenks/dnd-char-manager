@@ -11,6 +11,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatButtonModule } from '@angular/material/button';
+import { UiUtilModule } from '../ui-util/ui-util.module';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,10 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     UiCharactersModule,
     MatCardModule,
-    FormlyModule.forRoot({
-      validationMessages: [
-        { name: 'required', message: 'This field is required' },
-      ],
-    }),
+    FormlyModule,
     FormlyMaterialModule,
     ReactiveFormsModule,
+    UiUtilModule,
     RouterModule.forChild([
       {
         path: 'new',

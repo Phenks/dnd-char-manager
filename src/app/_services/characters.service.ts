@@ -20,7 +20,7 @@ import { UserService } from './user.service';
 export class CharactersService {
   public characters$: Subject<CharacterDetail[]>;
 
-  constructor(private http: HttpClient, private userService: UserService) {
+  constructor(private http: HttpClient) {
     this.characters$ = new ReplaySubject(1);
     this.loadCharacters();
     // [

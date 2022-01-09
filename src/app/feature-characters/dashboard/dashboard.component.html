@@ -1,13 +1,7 @@
-<div class="container">
-  <ui-character-card
-    class="card"
-    *ngFor="let char of characters$ | async"
-    [character]="char"
-    (click)="routeToCharPage(char)"
-  ></ui-character-card>
-  <mat-card (click)="routeToNewChar()">
-    <mat-card-content class="new-char-card">
-      <div class="add-symbol">+</div>
-    </mat-card-content>
-  </mat-card>
-</div>
+<ui-character-card
+  class="card"
+  *ngFor="let char of characters$ | async"
+  [character]="char"
+  (click)="routeToCharPage(char)"
+></ui-character-card>
+<ui-util-add-card (click)="openNewCharacterDialog()"></ui-util-add-card>

@@ -10,6 +10,10 @@ import { FeatureLayoutModule } from './feature-layout/feature-layout.module';
 import { FormlyModule } from '@ngx-formly/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './_services/http-interceptors';
+import { UiUtilModule } from './ui-util/ui-util.module';
+import { FeatureSessionModule } from './feature-session/feature-session.module';
+import { MatCardModule } from '@angular/material/card';
+import { FormlyMaterialModule } from '@ngx-formly/material';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,11 +24,14 @@ import { AuthInterceptor } from './_services/http-interceptors';
     FeatureCharactersModule,
     FeatureLayoutModule,
     HttpClientModule,
+    UiUtilModule,
+    FeatureSessionModule,
     FormlyModule.forRoot({
       validationMessages: [
         { name: 'required', message: 'This field is required' },
       ],
     }),
+    FormlyMaterialModule,
   ],
   providers: [
     {
