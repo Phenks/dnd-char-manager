@@ -10,7 +10,6 @@ body {
 }
 
 .card {
-  min-height: 300px;
   min-height: calc(100% - 32px) !important;
 
   width: 250px;
@@ -19,8 +18,14 @@ body {
 .card-container {
   display: flex;
   gap: 47px;
+  flex-wrap: wrap;
 }
 
 .card-hover:hover {
   background-color: gray;
+}
+
+.tile {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
