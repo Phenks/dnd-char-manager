@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UiSessionModule } from '../ui-session/ui-session.module';
 import { DetailComponent } from './detail/detail.component';
+import { MatDividerModule } from '@angular/material/divider';
 @NgModule({
   declarations: [OverviewComponent, NewSessionComponent, DetailComponent],
   imports: [
@@ -22,6 +23,7 @@ import { DetailComponent } from './detail/detail.component';
     MatButtonModule,
     ReactiveFormsModule,
     UiSessionModule,
+    MatDividerModule,
     RouterModule.forChild([
       {
         path: '',

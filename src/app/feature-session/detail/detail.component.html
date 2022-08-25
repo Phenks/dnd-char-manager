@@ -1,1 +1,26 @@
-<p>detail works!</p>
+<div class="container" *ngIf="$gameSession | async as session">
+  <div class="tile groupInv">
+    <div class="groupCurrency">Total : {{ session.groupCurrency.gold }}</div>
+    <mat-divider></mat-divider>
+    <div class="groupInv">
+      <ui-util-item-card
+        *ngFor="let item of session.groupInventory"
+      ></ui-util-item-card>
+    </div>
+    <div class="groupShop"></div>
+    <div class="dmInv"></div>
+  </div>
+  <div class="tile">
+    <button (click)="joinAsPlayer()">join</button>
+  </div>
+  <div class="tile">items</div>
+  <div class="tile log">log</div>
+  <div class="tile misc-panel">
+    <div>session time</div>
+    <div>
+      <button mat-button (click)="openSession()" color="primary">
+        Open Session
+      </button>
+    </div>
+  </div>
+</div>
