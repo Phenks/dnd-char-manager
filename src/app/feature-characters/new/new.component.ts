@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { CharactersService } from 'src/app/_services/characters.service';
@@ -14,7 +15,11 @@ interface BeyondUrl {
   styleUrls: ['./new.component.less'],
 })
 export class NewCharComponent implements OnInit {
-  constructor(private charService: CharactersService, private router: Router) {}
+  constructor(
+    private charService: CharactersService,
+    private router: Router,
+    public dialogRef: MatDialogRef<NewCharComponent>
+  ) {}
   form = new FormGroup({});
   model: BeyondUrl = { url: '' };
   options: FormlyFormOptions = {};
@@ -36,8 +41,9 @@ export class NewCharComponent implements OnInit {
 
   loadCharacter(url: BeyondUrl) {
     this.isSubmitting = true;
-    this.charService
-      .create(url.url)
-      .subscribe((c) => this.router.navigate(['characters']));
+    this.charService.loadCharacter(url.url).subscribe((c) => {
+      this.isSubmitting = false;
+      this.dialogRef.close();
+    });
   }
 }

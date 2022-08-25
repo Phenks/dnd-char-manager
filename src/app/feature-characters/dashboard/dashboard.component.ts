@@ -18,7 +18,7 @@ export class CharacterDashboardComponent {
     private router: Router,
     private dialog: MatDialog
   ) {
-    this.characters$ = characterService.getAll();
+    this.characters$ = characterService.data$;
   }
 
   routeToCharPage(char: CharacterDetail): void {
@@ -26,12 +26,8 @@ export class CharacterDashboardComponent {
   }
 
   openNewCharacterDialog(): void {
-    const dialogRef = this.dialog.open(NewCharComponent, {
+    this.dialog.open(NewCharComponent, {
       width: '45vw',
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed' + result);
     });
   }
 }

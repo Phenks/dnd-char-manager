@@ -1,28 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  EMPTY,
+  BehaviorSubject,
   filter,
-  first,
   map,
   Observable,
-  of,
   ReplaySubject,
   share,
   Subject,
 } from 'rxjs';
 import { CharacterDetail } from '../_shared/character';
-import { UserService } from './user.service';
+import { ApiServiceBase } from './api-service-base';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CharactersService {
-  public characters$: Subject<CharacterDetail[]>;
+export class CharactersService extends ApiServiceBase<CharacterDetail> {
+  selectedCharacterId: null | number = 1;
 
-  constructor(private http: HttpClient) {
-    this.characters$ = new ReplaySubject(1);
-    this.loadCharacters();
+  selectedCharacter: Observable<CharacterDetail> = this.data$.pipe(
+    map(
+      (data) => data.filter((char) => char.id === this.selectedCharacterId)[0]
+    )
+  );
+
+  constructor(http: HttpClient) {
+    super(http, 'characters');
     // [
     //   {
     //     id: 1,
@@ -52,17 +55,11 @@ export class CharactersService {
     // ];
   }
 
-  getAll(): Observable<CharacterDetail[]> {
-    return this.characters$.asObservable();
-  }
-
   get(id: number): Observable<CharacterDetail> {
-    return this.characters$.pipe(
-      map((chars) => chars.filter((c) => c.id === id)[0])
-    );
+    return this.data$.pipe(map((chars) => chars.filter((c) => c.id === id)[0]));
   }
 
-  create(beyondUrl: string) {
+  loadCharacter(beyondUrl: string) {
     let urlAsArray = beyondUrl.split('/');
     let charId = urlAsArray[urlAsArray.length - 1];
     var request = this.http
@@ -71,14 +68,8 @@ export class CharactersService {
       })
       .pipe(share());
     request.subscribe((c) => {
-      this.loadCharacters();
+      this.loadAll();
     });
     return request;
-  }
-
-  loadCharacters() {
-    this.http
-      .get<CharacterDetail[]>('https://localhost:44338/Characters')
-      .subscribe((chars) => this.characters$.next(chars));
   }
 }
