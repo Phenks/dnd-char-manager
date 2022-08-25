@@ -20,6 +20,13 @@ const routes: Routes = [
         (m) => m.FeatureSessionModule
       ),
   },
+  {
+    path: 'items',
+    loadChildren: () =>
+      import('./feature-items/feature-items.module').then(
+        (m) => m.FeatureItemsModule
+      ),
+  },
 ];
 
 @NgModule({

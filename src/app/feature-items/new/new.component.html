@@ -1,0 +1,14 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="mode === 'post' ? addItem(model) : updateItem(model)"
+>
+  <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="!form.valid || submitting"
+  >
+    {{ mode === "post" ? "Create Item!" : "Update Item!" }}
+  </button>
+</form>
