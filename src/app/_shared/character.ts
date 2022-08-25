@@ -1,5 +1,5 @@
 export interface CharacterDetail {
-  id?: number;
+  id: number;
   name?: string;
   imageURL?: string;
   race?: string;
@@ -12,7 +12,7 @@ export interface CharacterDetail {
 }
 
 export interface Currency {
-  id?: number;
+  id: number;
   copper?: number;
   silver?: number;
   gold?: number;
@@ -20,10 +20,21 @@ export interface Currency {
   platin?: number;
 }
 
+export interface ItemEntry {
+  notes: string;
+  quantity: number;
+  item: Item;
+}
+
 export interface Item {
-  value?: number;
-  name?: string;
-  id?: number;
-  quantity?: number;
-  tradeable?: boolean;
+  value: number;
+  name: string;
+  id: number;
+  tradeable: boolean;
+  description: string;
+  imageUrl: string;
+  bundleSize: number;
+  weight: number;
+  rarity: string;
+  dndBeyondId: number;
 }
