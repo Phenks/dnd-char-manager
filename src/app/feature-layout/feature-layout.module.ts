@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { UtilAuthModule } from '../util-auth/util-auth.module';
 @NgModule({
   declarations: [LayoutComponent],
   imports: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatListModule,
     RouterModule,
+    UtilAuthModule,
   ],
   exports: [LayoutComponent],
 })

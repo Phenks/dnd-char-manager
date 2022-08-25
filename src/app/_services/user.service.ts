@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UserData } from '../_shared/user';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { UserData } from '../_shared/user';
 })
 export class UserService {
   private auth2?: gapi.auth2.GoogleAuth;
-  public userSubject = new ReplaySubject<UserData | null>();
+  public userSubject = new BehaviorSubject<UserData | null>(null);
   private userToken?: string;
   constructor(private http: HttpClient) {
     gapi.load('auth2', () => {
@@ -46,6 +46,10 @@ export class UserService {
     this.auth2?.signOut();
     this.userSubject.next(null);
     localStorage.removeItem('userToken');
+  }
+
+  public get user() {
+    return this.userSubject.getValue();
   }
 
   public user$ = this.userSubject.asObservable();

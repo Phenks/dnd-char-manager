@@ -15,6 +15,7 @@ import { FeatureSessionModule } from './feature-session/feature-session.module';
 import { MatCardModule } from '@angular/material/card';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { UiSessionModule } from './ui-session/ui-session.module';
+import { UtilAuthModule } from './util-auth/util-auth.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -34,6 +35,7 @@ import { UiSessionModule } from './ui-session/ui-session.module';
       ],
     }),
     FormlyMaterialModule,
+    UtilAuthModule,
   ],
   providers: [
     {

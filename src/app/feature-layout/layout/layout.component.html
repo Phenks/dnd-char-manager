@@ -8,11 +8,14 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-nav-list *hasRole="['PLAYER']">
       <a mat-list-item [routerLink]="['characters']">My Characters</a>
     </mat-nav-list>
-    <mat-nav-list>
+    <mat-nav-list *hasRole="['PLAYER']">
       <a mat-list-item [routerLink]="['sessions']">Sessions</a>
+    </mat-nav-list>
+    <mat-nav-list *hasRole="['PLAYER']">
+      <a mat-list-item [routerLink]="['items']">Items</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -52,8 +55,9 @@
       </div>
     </mat-toolbar>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" *ngIf="user | async; else signInRequest">
       <ng-content></ng-content>
     </div>
+    <ng-template #signInRequest>Bitte einloggen!</ng-template>
   </mat-sidenav-content>
 </mat-sidenav-container>
