@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatButtonModule } from '@angular/material/button';
 import { UiUtilModule } from '../ui-util/ui-util.module';
+import { SelectComponent } from './select/select.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { UiUtilModule } from '../ui-util/ui-util.module';
     CharacterDetailComponent,
     NewCharComponent,
     CharactersEntryComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +31,7 @@ import { UiUtilModule } from '../ui-util/ui-util.module';
     FormlyMaterialModule,
     ReactiveFormsModule,
     UiUtilModule,
+    MatDialogModule,
     RouterModule.forChild([
       {
         path: 'new',

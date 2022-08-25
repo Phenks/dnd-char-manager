@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+  <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="!form.valid"
+    [mat-dialog-close]="model"
+  >
+    Character laden
+  </button>
+</form>
